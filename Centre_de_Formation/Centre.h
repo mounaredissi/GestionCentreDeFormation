@@ -4,6 +4,7 @@
 #include "Salle.h"
 #include "Materiels.h"
 #include <string>
+#include<fstream>
 using namespace std; 
 class Centre
 {
@@ -19,6 +20,7 @@ public:
 	
 	Centre();
 	~Centre();
+	void supprimerReservation();
 	void afficheSalleDisponibles(Date, Temps);
 
 	vector<Salle> getSalles(); 
@@ -47,6 +49,11 @@ public:
 	void afficherFormation(int );
 	void ajouterClients(int, Client&);
 
-	void updateClientReservation(Client , int); 
+	void updateClientReservation(Client , int);
+	void afficherSalles();
+	void creer(fstream& f);
+	friend ostream& operator<<(ostream&, Centre&);
+	friend istream& operator>>(istream&, Centre&);
 
+	
 };

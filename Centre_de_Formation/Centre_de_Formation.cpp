@@ -45,8 +45,23 @@ void ReAffiche( int &rep) {
 
 int main()
 {
-	int choixAdherant;
+	int choixAdherant, nb;
 	Centre C;
+	Salle s;
+	fstream f;
+	C.creer(f);
+
+	cout << "Donnez les informations de la salle " << endl;
+	cin >> C;
+	f << C;
+
+	cout << "Les Salles sont :" << endl; 
+	C.afficherSalles();
+	cout << " " << endl; 
+
+
+
+
 	do {
 
 		int  choixFormateur, du, choixMateriel, nombreJour, reponse, j, choixM, quantiteDemandee, choixClient,nbre;
@@ -168,8 +183,7 @@ int main()
 
 				break;
 			case 3:
-
-
+				C.supprimerReservation();
 				break;
 
 
@@ -200,7 +214,7 @@ int main()
 					cin >> choixClient;
 					if (choixClient == C.getSizeFormation())
 					{
-						break;
+						break;	
 					}
 					while (C.getSizeFormation() < choixClient)
 					{

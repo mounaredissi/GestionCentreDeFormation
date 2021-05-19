@@ -2,17 +2,18 @@
 
 Centre::Centre()
 {
+		
 	
-		salles.push_back(Salle(1,1));
+		/*salles.push_back(Salle(1,1));
 		salles.push_back(Salle(90,2));
 		salles.push_back(Salle(80,3));
-		salles.push_back(Salle(70,4));
+		salles.push_back(Salle(70,4));*/
 
 		materiels.push_back(Materiels("ecran"));
 		materiels.push_back(Materiels("retorprojecteur"));
 		materiels.push_back(Materiels("Pc"));
 
-		salles[0].setDisponibilite(Disponibilite(Date(12, 12, 12), Temps(10, 0), 2));
+		/*salles[0].setDisponibilite(Disponibilite(Date(12, 12, 12), Temps(10, 0), 2));
 
 		salles[1].setDisponibilite(Disponibilite(Date(12, 12, 12), Temps(10, 0), 2));
 		salles[2].setDisponibilite(Disponibilite(Date(12, 12, 12), Temps(10, 0), 2));
@@ -25,7 +26,7 @@ Centre::Centre()
 		salles[1].setDisponibilite(Disponibilite(Date(1, 1, 1), Temps(1, 1), 1));
 		salles[2].setDisponibilite(Disponibilite(Date(1, 1, 1), Temps(1, 1), 1));
 		salles[3].setDisponibilite(Disponibilite(Date(1, 1, 1), Temps(1, 1), 1));
-		//cout << salles[0].rechercheDisponibilite(Date(12, 12, 12), Temps(8, 0), 2)<< endl; 
+		//cout << salles[0].rechercheDisponibilite(Date(12, 12, 12), Temps(8, 0), 2)<< endl; */
 		
 		
 		
@@ -33,6 +34,13 @@ Centre::Centre()
 }
 Centre::~Centre()
 {
+}
+void Centre::supprimerReservation()
+{
+	int i;
+	cout << "Donnez le num de la reservation a supprimer " << endl;
+	cin >> i;
+	reservation.erase(reservation.begin() + i);
 }
 
 void Centre::afficheSalleDisponibles(Date, Temps)
@@ -162,5 +170,40 @@ void Centre::updateClientReservation(Client c, int i)
 	cout << "Client Ajoutee " << endl; 
 }
 
+void Centre::afficherSalles()
+{
+	cout << *this;
+}
 
+istream& operator>>(istream& in, Centre& c)
+{
+	in.seekg(0);
+	Salle s;
+	char rep;
+	do
+	{
+		in >> s;
 
+		c.salles.push_back(s);
+		cout << "rajouter ?" << endl;
+		cin >> rep;
+	} while (rep == 'o');
+	return in;
+}
+
+ostream& operator<<(ostream& out, Centre& c)
+{
+	for (int i = 0; i < c.salles.size(); i++)
+	{
+		out << c.salles[i] << endl;
+
+	}
+	return out;
+}
+
+void Centre::creer(fstream& f)
+{
+	f.open("C:\\Users\\mouna\\FichierSalle", ios::in | ios::out | ios::trunc);
+	if (!f.is_open()) exit(-1);
+}
+  

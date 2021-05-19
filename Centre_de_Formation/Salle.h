@@ -11,7 +11,8 @@ public:
     
     int getCapacite(); 
     ~Salle(void);
-
+    friend ostream& operator<<(ostream&, Salle&);
+    friend istream& operator>>(istream&, Salle&);
     void afficher(); 
 };
 
