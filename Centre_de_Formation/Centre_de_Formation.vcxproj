@@ -151,6 +151,7 @@
     <ClCompile Include="Reservation.cpp" />
     <ClCompile Include="Salle.cpp" />
     <ClCompile Include="ServiceReservation.cpp" />
+    <ClCompile Include="tableau.cpp" />
     <ClCompile Include="Temps.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="Reservation.h" />
     <ClInclude Include="Salle.h" />
     <ClInclude Include="ServiceReservation.h" />
+    <ClInclude Include="tableau.h" />
     <ClInclude Include="Temps.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

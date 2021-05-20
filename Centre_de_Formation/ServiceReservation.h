@@ -2,19 +2,21 @@
 #include<string>
 #include<iostream>
 #include "Date.h"
+#include "Temps.h"
 #include "Disponibilite.h"
 #include<vector>
 using namespace std;
 class ServiceReservation
 {
-protected : 
+protected:
     vector <Disponibilite> dispo;
+
 public:
     ServiceReservation(void);
     ~ServiceReservation(void);
     vector<Disponibilite> getDisponibilite();
-    bool rechercheDisponibilite(Date&,Temps&,int&);
-    virtual void afficher()=0;
+    bool rechercheDisponibilite(Date&, Temps&, int&);
+    virtual void afficher() = 0;
 
     void setDisponibilite(Disponibilite d)
     {
@@ -23,7 +25,9 @@ public:
 
     void afficherDisponibilite();
 
-    int rechercheDispoDate(Date d);
-    
+
+    void supprimerDisponibilite(vector <Temps>, vector <Date>);
+
+
 };
 

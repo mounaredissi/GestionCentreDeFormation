@@ -17,11 +17,11 @@ vector<Disponibilite> ServiceReservation::getDisponibilite()
 
 
 
-bool ServiceReservation::rechercheDisponibilite(Date& d, Temps& t,int &c)
+bool ServiceReservation::rechercheDisponibilite(Date& d, Temps& t, int& c)
 {
 
 
-	bool test = true; 
+	bool test = true;
 	for (int i = 0; i < dispo.size(); i++)
 	{
 		if (dispo[i].getDate() == d)
@@ -36,15 +36,15 @@ bool ServiceReservation::rechercheDisponibilite(Date& d, Temps& t,int &c)
 
 		}
 		else { test = true; }
-		
+
 	}
 
 
 	if (dispo.size() == 0) {
-		test = true; 
+		test = true;
 	}
 
-	return test; 
+	return test;
 
 }
 
@@ -56,7 +56,12 @@ void ServiceReservation::afficherDisponibilite()
 	}
 }
 
-int ServiceReservation::rechercheDispoDate(Date d)
+
+
+void ServiceReservation::supprimerDisponibilite(vector <Temps> t, vector <Date> d)
 {
-	return 0;
+	for (int i = 0; i < dispo.size(); i++) {
+		if (dispo[i].getDate() == d[i] && dispo[i].getTemps() == t[i])
+			dispo.erase(i + dispo.begin());
+	}
 }

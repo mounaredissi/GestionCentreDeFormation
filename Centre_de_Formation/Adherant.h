@@ -7,7 +7,6 @@ using namespace std;
 
 class Adherant
 {
-
 protected:
     string nom;
     int cinn;
@@ -15,13 +14,10 @@ protected:
     string email;
 public:
     Adherant(string = "", int = 0, int = 0, string = "");
-      ~Adherant(void);
-
-
+    ~Adherant(void);
     void operator=(const Adherant&);
     virtual void saisirAdherant();
     virtual void afficherAdherant();
-
 
 };
 

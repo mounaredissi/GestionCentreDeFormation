@@ -4,19 +4,19 @@ Formation::Formation()
 {
 }
 
-Formation::Formation(string nom, string level, float price, int j, int m, int a, int j1, int m1, int a1,  Formateur f) :nom_formation(nom), niveau(level),prix(price), dateDebutFormation(j, m, a), dateFinFormation(j1, m1, a1)
+Formation::Formation(string nom, string level, float price, int j, int m, int a, int j1, int m1, int a1, Formateur f) :nom_formation(nom), niveau(level), prix(price), dateDebutFormation(j, m, a), dateFinFormation(j1, m1, a1)
 {
 	formateur = f;
 }
 
-void Formation::operator=(const Formation& f )
+void Formation::operator=(const Formation& f)
 {
 	nom_formation = f.nom_formation;
-	niveau = f.niveau; 
-	prix = f.prix; 
-	dateDebutFormation = f.dateDebutFormation; 
+	niveau = f.niveau;
+	prix = f.prix;
+	dateDebutFormation = f.dateDebutFormation;
 	dateFinFormation = f.dateFinFormation;
-	formateur = f.formateur; 
+	formateur = f.formateur;
 	for (int i = 0; i < f.heureDeDebutFormation.size(); i++)
 	{
 		heureDeDebutFormation.push_back(f.heureDeDebutFormation[i]);
@@ -35,17 +35,17 @@ Formation::~Formation(void)
 
 void Formation::saisirFormation()
 {
-	Date d,d1;
+	Date d, d1;
 
 
-	cout << "taper nom formation" << endl; 
+	cout << "taper nom formation" << endl;
 	cin >> nom_formation;
 	cout << "taper niveau du formation " << endl;
 	cin >> niveau;
-	cout << "taper lr prix de la formation" << endl; 
-	cin >> prix; 
-	
-	cout << "saisir le formateur" << endl; 
+	cout << "taper lr prix de la formation" << endl;
+	cin >> prix;
+
+	cout << "saisir le formateur" << endl;
 	formateur.saisirFormateur();
 
 
@@ -62,35 +62,36 @@ void Formation::afficherFormation()
 	dateDebutFormation.afficher();
 	cout << "la date de fin de la formation" << endl;
 	dateFinFormation.afficher();
-	cout << "les dates et les heures de la formation:" << endl; 
+	cout << "les dates et les heures de la formation:" << endl;
 	for (int i = 0; i < heureDeDebutFormation.size(); i++)
 	{
 		datesFormation[i].afficher();
 		heureDeDebutFormation[i].afficheTemps();
-		heureDeFinFormation[i].afficheTemps();	
+		heureDeFinFormation[i].afficheTemps();
 	}
-
+	cout << "les informations du formateur " << endl;
+	formateur.afficherFormateur();
 
 	//cout << "information sur le formateur :" << endl; 
 	//formateur.afficherFormateur();
-	
+
 }
 
-void Formation::updateDate(vector<Date> dateDebut, vector<Temps> tempsDebut, vector<Temps> tempsFin,vector <int> capMax)
+void Formation::updateDate(vector<Date> dateDebut, vector<Temps> tempsDebut, vector<Temps> tempsFin, vector <int> capMax)
 {
 
 	dateDebutFormation = dateDebut[0];
-	dateFinFormation = dateDebut[dateDebut.size()-1];
+	dateFinFormation = dateDebut[dateDebut.size() - 1];
 
 
-	for (int i = 0; i < dateDebut.size(); i++) 
+	for (int i = 0; i < dateDebut.size(); i++)
 	{
 		datesFormation.push_back(dateDebut[i]);
 		heureDeDebutFormation.push_back(tempsDebut[i]);
 		heureDeFinFormation.push_back(tempsFin[i]);
 		maxClient.push_back(capMax[i]);
 		nbrClientRestant.push_back(capMax[i]);
-		
+
 	}
 
 
@@ -107,7 +108,7 @@ void Formation::afficherNomFormation()
 }
 
 
-void Formation::updateClient(Client& cl )
+void Formation::updateClient(Client& cl)
 {
 	tab.push_back(cl);
 
@@ -134,11 +135,80 @@ vector<Client> Formation::getClient()
 
 bool Formation::rechercheComplet()
 {
-	for (int i = 0; i < nbrClientRestant.size();i++) {
+	for (int i = 0; i < nbrClientRestant.size(); i++) {
 		if (nbrClientRestant[i] == 0) {
-			return true; 
+			return true;
 			break;
 		}
 	}
-	return false; 
+	return false;
+}
+
+vector<Temps> Formation::getTempsFormation()
+{
+	return heureDeDebutFormation;
+}
+
+vector<Date> Formation::getDateFormation()
+{
+	return datesFormation;
+}
+
+void Formation::setNomF(string NOMF)
+{
+	nom_formation = NOMF;
+}
+void Formation::setNiveau(string NIV)
+{
+	niveau = NIV;
+}
+void Formation::setPrix(float PRIX)
+{
+	prix = PRIX;
+}
+void Formation::setFormateur(Formateur F)
+{
+	cout << "que voulez-vous modifier ?" << endl;
+	cout << "1-Nom               4-Email" << endl;
+	cout << "2-CIN               5-Profession" << endl;
+	cout << "3-NUM_TEL" << endl;
+	cin >> choix;
+	switch (choix)
+	{
+	case 1:
+
+		cout << "nouveau nom : ";
+		cin >> nv_nom;
+		formateur.setNom(nv_nom);
+		break;
+
+	case 2:
+
+		cout << "nv_CIN: ";
+		cin >> nv_cin;
+		formateur.setCIN(nv_cin);
+		break;
+
+	case 3:
+
+		cout << "nv_NumTel: ";
+		cin >> nv_tel;
+		formateur.setTEL(nv_tel);
+		break;
+
+	case 4:
+
+		cout << "Email: ";
+		cin >> nv_email;
+		formateur.setMAIL(nv_email);
+		break;
+
+	case 5:
+
+		cout << "profession: ";
+		cin >> nv_profession;
+		formateur.setProfession(nv_profession);
+		break;
+
+	}
 }
