@@ -31,5 +31,7 @@ void Disponibilite::afficherDispo()
 {
 	date.afficher();
 	temps.afficheTemps();
-	cout << duree << endl;
+	cout << "    " << endl;
+	cout << "___________________La duree est : " << duree << endl;
+	cout << "    " << endl;
 }

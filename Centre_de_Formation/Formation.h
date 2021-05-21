@@ -50,5 +50,7 @@ public:
     void setNiveau(string);
     void setPrix(float);
     void setFormateur(Formateur);
+    string getnomF();
+
 };
 

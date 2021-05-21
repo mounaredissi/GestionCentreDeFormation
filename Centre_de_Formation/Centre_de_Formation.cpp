@@ -5,42 +5,61 @@
 #include "tableau.h"
 using namespace std;
 void afficherChoixAdherent() {
-	cout << "entrer votre choix" << endl;
-	cout << "1- Formateur" << endl;
-	cout << "2- Client" << endl;
-	cout << "3- Afficher Reservation" << endl;
-	cout << "4-Afficher depenses" << endl;
-	cout << "5- Quitter" << endl;
+
+	cout << "___________________Entrez votre choix :" << endl;
+	cout << "   " << endl;
+	cout << "----------     1- Formateur             ----------" << endl;
+	cout << "----------     2- Client                ----------" << endl;
+	cout << "----------     3- Afficher Reservation  ----------" << endl;
+	cout << "----------     4-Afficher depenses      ----------" << endl;
+	cout << "----------     5- Quitter               ----------" << endl;
 	cout << "              " << endl;
+
 }
 void afficherChoixFormateur() {
-	cout << "entrer votre choix" << endl;
-	cout << "1- Reserver " << endl;
-	cout << "2- Modifier la reservation" << endl;
-	cout << "3- Annuler la reservation" << endl;
+	system("cls");
+
+	cout << "___________________Entrez votre choix : " << endl;
+	cout << "   " << endl;
+	cout << "----------    1- Reserver                ---------- " << endl;
+	cout << "----------    2- Modifier la reservation ----------" << endl;
+	cout << "----------    3- Annuler la reservation  ----------" << endl;
+	cout << "----------    4- Retour                  ----------" << endl;
 	cout << "              " << endl;
 }
 void saisirFormateurReservation(Date& d, Temps& t, int& duree)
 {
 	int a, m, j;
 	int h, min, d1;
-	cout << "entrer la date de reservation" << endl;
+	cout << "   " << endl;
+	cout << "___________________Entrez la date de reservation : " << endl;
+	cout << "   " << endl;
 	cin >> j;
 	cin >> m;
 	cin >> a;
-	cout << "entrer l'heure de la formation" << endl;
+	cout << "   " << endl;
+	cout << "___________________Entrez l'heure de la formation : " << endl;
+	cout << "   " << endl;
 	cin >> h;
 	cin >> min;
-	cout << "entrer la duree" << endl;
+	cout << "   " << endl;
+	cout << "___________________Entrez la duree : " << endl;
+	cout << "   " << endl;
 	cin >> d1;
 	d = Date(j, m, a);
 	t = Temps(h, min);
 	duree = d1;
 }
 void ReAffiche(int& rep) {
-	cout << "veuillez vous entrez une autre date " << endl;
-	cout << "1- OUI" << endl;
-	cout << "2- NON" << endl;
+	cout << "     " << endl;
+	cout << "___________________________________________" << endl;
+	cout << "    " << endl;
+	cout << "****Veuillez vous entrez une autre date****" << endl;
+	cout << "           1- OUI" << endl;
+	cout << "           2- NON" << endl;
+	cout << "   " << endl;
+	cout << "___________________________________________" << endl;
+
 	cin >> rep;
 }
 
@@ -52,21 +71,27 @@ int main()
 	Centre C;
 	Salle s;
 	fstream fiche;
-	string pseudo, mot_de_passe;
+	string pseudo, mot_de_passe,ch;
 	map<string, string>m;
 	map<string, string>::iterator it;
 	bool trouv;
 	m["Nesrine"] = "n1920";
 	m["Ezer"] = "e1999";
 	m["Mouna"] = "m1999";
+	cout << "\n\n\n";
+	cout << "\n ------------------------------------------------------------------------\n";
 
-
+	cout << "__________________________Centre EMN______________________________";
+	cout << "\n\n------------------------------------------------------------------------\n";
+	cout << "\n\n\n";
 	while (1)
 	{
 		trouv = false;
-		cout << "entrez votre pseudo" << endl;
+		cout << "   " << endl;
+		cout << "\n___________________entrez votre pseudo" << endl;
 		cin >> pseudo;
-		cout << "entrez votre mot de passe" << endl;
+		cout << "   " << endl;
+		cout << "\n___________________entrez votre mot de passe" << endl;
 		cin >> mot_de_passe;
 
 		for (it = m.begin(); it != m.end(); it++)
@@ -79,21 +104,31 @@ int main()
 
 		}
 		if (trouv == true) break;
-		cout << "verifier le pseudo et le mot de passe" << endl;
+		cout << "   " << endl;
+		system("cls");
+		cout << "***verifier le pseudo et le mot de passe***" << endl;
+		cout << "   " << endl;
 
 	}
-	cout << "BIENVENUE" << endl;
-	C.creer(fiche);
+	system("cls");
+	cout << "\n------------------------------------------------------------------------\n";
 
-	cout << "Donnez les informations de la salle " << endl;
+	cout << "\n__________________________BIENVENUE______________________________\n";
+	cout << "\n\n------------------------------------------------------------------------\n";
+	cout << "\n\n\n";
+
+	C.creer(fiche);
+	cout << "   " << endl;
+	cout << "___________________Donnez les informations de la salle " << endl;
+	cout << "   " << endl;
 	cin >> C;
 	fiche << C;
+	cout << "   " << endl;
 
-	cout << "Les Salles sont :" << endl;
+	cout << "___________________Les Salles sont :" << endl;
+	cout << "   " << endl;
 	C.afficherSalles();
 	cout << " " << endl;
-
-
 
 
 	do {
@@ -118,13 +153,14 @@ int main()
 		vector<Formation> FORMATIONS;
 		Formateur F;
 		vector <Reservation> RESERVATIONS;
-		
+
 		int i, choice;
 		string nv_nomF, nv_niveau;
-		float nv_prix,somprix=0;
+		float nv_prix, somprix = 0;
 		vector<Formation> Form;
 		Reservation r;
-		afficherChoixAdherent();
+		first:{afficherChoixAdherent(); }
+		
 
 		cout << "    " << endl;
 		cin >> choixAdherant;
@@ -135,7 +171,7 @@ int main()
 		}
 		catch (int e)
 		{
-			cout << "choix invalide,veuillez retaper votre choix" << endl;
+			cout << " * *********choix invalide, veuillez retaper votre choix**********  " << endl;
 		}
 		switch (choixAdherant)
 		{
@@ -143,14 +179,14 @@ int main()
 			afficherChoixFormateur();
 			cout << "     " << endl;
 			cin >> choixFormateur;
-			cout << " " << endl;
+			cout << "      " << endl;
 			try
 			{
-				if (choixFormateur> 4) throw - 1;
+				if (choixFormateur > 4) throw - 1;
 			}
 			catch (int e)
 			{
-				cout << "choix invalide, veuillez retaper votre choix" << endl;
+				cout << "********** choix invalide,veuillez retaper votre choix **********" << endl;
 			}
 			switch (choixFormateur)
 			{
@@ -193,12 +229,15 @@ int main()
 					C.afficherMateriels();
 
 					do {
-						cout << "entrer votre choix de materiels" << endl;
+						cout << "   " << endl;
+						cout << "___________________Entrez votre choix de materiels :" << endl;
 						cin >> choixM;
 
 						while (C.getMateriels().size() < choixM)
 						{
-							cout << "choix invalide retaper votre choix" << endl;
+							cout << "   " << endl;
+							cout << "********** choix invalide retaper votre choix **********" << endl;
+							cout << "   " << endl;
 							cin >> choixM;
 						}
 
@@ -206,7 +245,9 @@ int main()
 							break;
 						}
 
-						cout << "entrer quantite" << endl;
+						cout << "   " << endl;
+						cout << "___________________entrez quantite :" << endl;
+						cout << "   " << endl;
 						cin >> quantiteDemandee;
 
 
@@ -244,16 +285,21 @@ int main()
 
 			case 2:
 
-				
+				system("cls");
 
-				cout << "donner le numero de la formation a modifier";
+				cout << "   " << endl;
+				cout << "___________________donner le numero de la formation a modifier" << endl;
+				cout << "   " << endl;
 				cin >> i;
 
-
-				cout << "1-modifier nom de la formation :" << endl;
-				cout << "2-modifier niveau de la formation :" << endl;
-				cout << "3-modifier le prix de la formation" << endl;
-				cout << "4-modifier les informations d'un formateur" << endl;
+				cout << "_____________________________________________________________" << endl;
+				cout << "   " << endl;
+				cout << "----------         1-modifier nom de la formation              ----------" << endl;
+				cout << "----------         2-modifier niveau de la formation           ----------" << endl;
+				cout << "----------         3-modifier le prix de la formation          ----------" << endl;
+				cout << "----------         4-modifier les informations d'un formateur  ----------" << endl;
+				cout << "   " << endl;
+				cout << "_____________________________________________________________" << endl;
 				cin >> choice;
 				try
 				{
@@ -261,24 +307,29 @@ int main()
 				}
 				catch (int e)
 				{
-					cout << "choix invalide,veuillez retaper votre choix" << endl;
+					cout << "********** choix invalide,veuillez retaper votre choix **********" << endl;
+					cout << "   " << endl;
 				}
 				switch (choice)
 				{
 
-				case 1:	cout << "nv_nomF" << endl;
+				case 1:	cout << "___________________nv_nomF" << endl;
+					cout << "   " << endl;
 					cin >> nv_nomF;
 					r = C.getReservation()[i];
 
 					f = (r.getFormation());
 					f.setNomF(nv_nomF);
+					cout << "Le nom de la formation est modifie" << endl;
 					//f.afficherFormation();
 					r.setformation(f);
 					//r.afficherReservation();
 					C.setReservation(r, i);
 					break;
 
-				case 2: cout << "nv_niveau" << endl;
+				case 2:
+					cout << "___________________nv_niveau" << endl;
+					cout << "   " << endl;
 					cin >> nv_niveau;
 					r = C.getReservation()[i];
 
@@ -290,7 +341,9 @@ int main()
 					C.setReservation(r, i);
 					break;
 
-				case 3: cout << "nv_prix" << endl;
+				case 3:
+					cout << "___________________nv_prix" << endl;
+					cout << "   " << endl;
 					cin >> nv_prix;
 					r = C.getReservation()[i];
 					f = (r.getFormation());
@@ -316,32 +369,52 @@ int main()
 
 				break;
 			case 3:
-				C.supprimerReservation();
-				break;
 
+				cout << "entrer votre nom" << endl;
+				cout << "    " << endl;
+				cin >> ch;
+				for (int i = 0; i < C.getFormation().size(); i++)
+				{
+					if (C.getFormation()[i].getnomF() == ch)
+					{
+						C.getFormation()[i].afficherFormation();
+					}
+				}
+				C.supprimerReservation();
+				cout << "Reservation supprimee" << endl;
+				break;
+				case 4:
+					goto first;
+					break;
 
 			default:
 				break;
 			}
-		case 77 : 
-				break; 
+		case 77:
+			break;
 		case 2:
+
 
 			if (C.getSizeReservation() != 0) {
 				cl.saisirClient();
 				//cl.afficherClient();
-				cout << "les formations sont" << endl;
+				cout << "   " << endl;
+				cout << "********** les formations sont **********" << endl;
+				cout << "   " << endl;
 				C.afficherFormations();
 
+				cout << "   " << endl;
+				cout << "___________________" << C.getSizeFormation() << "- quitter " << endl;
+				cout << "   " << endl;
 
-				cout << C.getSizeFormation() << "- quitter " << endl;
-
-				cout << "Entrer le nombre de formation desiree " << endl;
+				cout << "___________________Entrez le nombre de formation desiree " << endl;
+				cout << "   " << endl;
 				cin >> nbre;
 				for (int i = 0; i < nbre; i++)
 				{
 
-					cout << "entrer votre choix de formation" << endl;
+					cout << "___________________Entrez votre choix de formation  " << endl;
+					cout << "   " << endl;
 					cin >> choixClient;
 					if (choixClient == C.getSizeFormation())
 					{
@@ -349,7 +422,9 @@ int main()
 					}
 					while (C.getSizeFormation() < choixClient)
 					{
-						cout << "choix invalide retaper votre choix" << endl;
+						cout << "   " << endl;
+						cout << "********* choix invalide retaper votre choix **********" << endl;
+						cout << "   " << endl;
 						cin >> choixClient;
 					}
 
@@ -371,30 +446,36 @@ int main()
 				}
 			}
 			else {
-				cout << "aucune reservation disponible" << endl;
+				cout << "   " << endl;
+				cout << "********** aucune reservation disponible **********" << endl;
 				cout << " " << endl;
 			}
 
 			break;
-		case 88 : 
-			break; 
+		case 88:
+			break;
 		case 3:
 			if (C.getSizeReservation() != 0)
 			{
-				cout << "Les reservations :" << endl;
+				cout << "   " << endl;
+
+
+				cout << "----------  Les reservations  ----------" << endl;
+
 				C.afficherReservation();
 				cout << " " << endl;
 			}
 			else {
-				cout << "aucune reservation disponible" << endl;
+				cout << "   " << endl;
+				cout << "********** aucune reservation disponible **********" << endl;
 				cout << " " << endl;
 			}
 			//C.afficherFormations();
-			
+
 			break;
 
-		case 888 : 
-			break; 
+		case 888:
+			break;
 		case 4:
 			for (int i = 0; i < C.getSizeFormation(); i++)
 			{
@@ -405,23 +486,43 @@ int main()
 				s = t.somme();
 				somprix = somprix + s;
 			}
-			cout << "la somme est:" << endl;
+			cout << "   " << endl;
+
+
+			cout << "---------- la somme est  ----------" << endl;
+			cout << "   " << endl;
 			cout << somprix << endl;
-			float revenu=0, depense=0,gainCentre;
+			float revenu = 0, depense = 0, gainCentre;
 
 			revenu = somprix * 30 / 100;
-			cout << "entrer la depenses du centre" << endl;
+			cout << "   " << endl;
+			cout << "___________________Entrez la depenses du centre :" << endl;
+			cout << "   " << endl;
 			cin >> depense;
 			cout << endl;
 			gainCentre = revenu - depense;
-			cout << "le gain du centre est"<<gainCentre << endl;
+			cout << "   " << endl;
+			cout << "___________________le gain du centre est : " << gainCentre << endl;
+			cout << "   " << endl;
 			if (gainCentre < depense)
-				cout << "deficit" << endl;
+			{
+				cout << "   " << endl;
+				cout << "******************************" << endl;
+				cout << "---------  deficit  ----------" << endl;
+				cout << "******************************" << endl;
+				cout << "   " << endl;
+			}
 			else
-				cout << "succes" << endl;
+			{
+				cout << "   " << endl;
+				cout << "******************************" << endl;
+				cout << "----------  succes  ----------" << endl;
+				cout << "******************************" << endl;
+				cout << "   " << endl;
+
+			}
 
 		}
-		
 	} while (choixAdherant != 5);
 	return 0;
 

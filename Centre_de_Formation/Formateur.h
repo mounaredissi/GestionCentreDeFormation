@@ -15,6 +15,8 @@ public:
     void setTEL(int);
     void setMAIL(string);
     void setProfession(string);
+    string getNomm();
+
 };
 
 

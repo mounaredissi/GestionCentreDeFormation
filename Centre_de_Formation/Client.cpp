@@ -13,13 +13,15 @@ Client::~Client(void)
 void Client::saisirClient()
 {
 	saisirAdherant();
-	cout << "entrer la fonction du client" << endl;
+	cout << "___________________Entrez la fonction du client :  " << endl;
 	cin >> fonction;
+	cout << "    " << endl;
 }
 
 void Client::afficherClient()
 {
 	afficherAdherant();
-	cout << "la fonction est " << fonction << endl;
+	cout << "___________________la fonction est :  " << fonction << endl;
+	cout << "    " << endl;
 }
 

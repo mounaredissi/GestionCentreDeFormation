@@ -38,7 +38,7 @@ Centre::~Centre()
 void Centre::supprimerReservation()
 {
 	int i;
-	cout << "Donnez le num de la reservation a supprimer " << endl;
+	cout << "___________________Donnez le numero de la reservation a supprimer :  " << endl;
 	cin >> i;
 
 	for (int j = 0; j < reservation[i].getIndiceSalles().size(); j++) {
@@ -104,7 +104,7 @@ void Centre::afficherMateriels()
 		materiels[i].afficherSansQuantite();
 
 	}
-	cout << " 3- Quitter" << endl;
+	cout << " ----------  3- Quitter  ----------" << endl;
 }
 
 void Centre::ajouterReservation(Reservation& r)
@@ -138,13 +138,13 @@ void Centre::afficherFormations()
 	{
 		if (!formations[i].rechercheComplet())
 		{
-			cout << "la formation d'indice " << i << " est : " << endl;
+			cout << "---------- la formation d'indice " << i <<" est  ---------- " << endl;
 			formations[i].afficherFormation();
 			cout << "    " << endl;
 		}
 		else
 		{
-			cout << "formation d'indice " << i << "est complet" << endl;
+			cout << "----------  formation d'indice " << i << "est complete  ----------" << endl;
 			cout << "    " << endl;
 		}
 
@@ -176,7 +176,9 @@ void Centre::updateClientReservation(Client c, int i)
 {
 	reservation[i].updateClient(c);
 
-	cout << "Client Ajoutee " << endl;
+	cout << "********** Client Ajoutee ********** " << endl;
+	cout << "    " << endl;
+
 }
 
 void Centre::afficherSalles()
@@ -194,7 +196,7 @@ istream& operator>>(istream& in, Centre& c)
 		in >> s;
 
 		c.salles.push_back(s);
-		cout << "rajouter ?" << endl;
+		cout <<  "___________________ rajouter ?" << endl;
 		cin >> rep;
 	} while (rep == 'o');
 	return in;

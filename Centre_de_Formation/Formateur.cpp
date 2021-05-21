@@ -18,19 +18,28 @@ void Formateur::operator=(const Formateur& f)
 void Formateur::saisirFormateur()
 {
 	saisirAdherant();
-	cout << "donner la profession" << endl;
+	cout << "___________________ donner la profession" << endl;
+
 	cin >> profession;
+	cout << "    " << endl;
 }
 
 void Formateur::afficherFormateur()
 {
 	afficherAdherant();
-	cout << "la profession est" << profession << endl;
+	cout << "    " << endl;
+	cout << "la profession est:" << profession << endl;
+	cout << "    " << endl;
+
 
 }
 void Formateur::setProfession(string PROF)
 {
 	profession = PROF;
+}
+string Formateur::getNomm()
+{
+	return nom;
 }
 void Formateur::setNom(string NOM)
 {

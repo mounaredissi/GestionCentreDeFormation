@@ -20,25 +20,46 @@ void Adherant::operator=(const Adherant& a)
 
 }
 
-void Adherant::saisirAdherant()
-{
-	cout << "donner le nom" << endl;
-	cin >> nom;
-	cout << "donner le CIN" << endl;
-	cin >> cinn;
-	cout << "donner le numero de telephone" << endl;
-	cin >> numTel;
-	cout << "donner l'e-mail" << endl;
-	cin >> email;
+
+
+	void Adherant::saisirAdherant()
+	{
+		cout << "___________________Donnez le nom :";
+		cin >> nom;
+		cout << "    " << endl;
+
+		cout << "___________________Donnez le CIN :";
+		cin >> cinn;
+		cout << "    " << endl;
+
+		cout << "___________________Donnez le numero de telephone :";
+		cin >> numTel;
+		cout << "    " << endl;
+
+		cout << "___________________Donnez l'e-mail :";
+		cin >> email;
+		cout << "    " << endl;
 
 
 
-}
 
-void Adherant::afficherAdherant()
-{
-	cout << "le nom est" << nom << endl;
-	cout << "le CIN est " << cinn << endl;
-	cout << "le numero de telephone est" << numTel << endl;
-	cout << "l'email est " << email << endl;
-}
+	}
+
+	void Adherant::afficherAdherant()
+	{
+		cout << "___________________le nom est " << nom << endl;
+		cout << "    " << endl;
+		cout << "___________________le CIN est " << cinn << endl;
+		cout << "    " << endl;
+
+		cout << "___________________le numero de telephone est" << numTel << endl;
+		cout << "    " << endl;
+
+		cout << "___________________l'email est " << email << endl;
+		cout << "    " << endl;
+
+	}
+
+
+
+
